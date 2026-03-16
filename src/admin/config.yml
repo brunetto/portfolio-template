@@ -10,6 +10,7 @@ collections:
   - name: "pages"
     label: "Services"
     folder: "pages"
+    nested: true
     create: true
     slug: "{{slug}}"
 
