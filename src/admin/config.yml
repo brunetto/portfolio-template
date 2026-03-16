@@ -3,13 +3,13 @@ backend:
   repo: brunetto/biemmezeta.github.io
   branch: main
 
-media_folder: "src/assets/uploads"
+media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
 collections:
   - name: "pages"
     label: "Services"
-    folder: "src/pages"
+    folder: "pages"
     create: true
     slug: "{{slug}}"
 
@@ -22,7 +22,7 @@ collections:
     files:
       - label: "Site Configuration"
         name: "site"
-        file: "src/_data/site.json"
+        file: "_data/site.json"
 
         fields:
           - { label: "Owner", name: "owner", widget: "string" }
