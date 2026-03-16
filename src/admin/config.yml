@@ -3,6 +3,9 @@ backend:
   repo: brunetto/biemmezeta.github.io
   branch: main
 
+  base_url: https://decap-cms-oauth.netlify.app
+  auth_endpoint: auth
+
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
