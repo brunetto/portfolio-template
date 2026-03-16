@@ -1,0 +1,31 @@
+{
+  "sections": [
+    {
+      "name": "Cocktails",
+      "items": [
+        {
+          "name": "Negroni",
+          "price": "10€",
+          "desc": "Gin, Campari, Vermouth"
+        },
+        {
+          "name": "Spritz",
+          "price": "7€"
+        }
+      ]
+    },
+    {
+      "name": "Beers",
+      "items": [
+        {
+          "name": "IPA",
+          "price": "6€"
+        },
+        {
+          "name": "Lager",
+          "price": "5€"
+        }
+      ]
+    }
+  ]
+}

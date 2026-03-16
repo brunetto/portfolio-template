@@ -1,0 +1,25 @@
+<section class="pricelist">
+    {% for section in pricelist.sections %}
+        <div class="pricelist-section">
+            <h2 class="pricelist-title">
+                {{ section.name }}
+            </h2>
+            <ul class="pricelist-items">
+                {% for item in section.items %}
+                    <li class="pricelist-item">
+                        <div class="pricelist-line">
+                            <span class="pricelist-name">{{ item.name }}</span>
+                            <span class="pricelist-dots"></span>
+                            <span class="pricelist-price">{{ item.price }}</span>
+                        </div>
+                        {% if item.desc %}
+                            <div class="pricelist-desc">
+                                {{ item.desc }}
+                            </div>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+</section>

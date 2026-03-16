@@ -1,0 +1,13 @@
+<script>
+    window.heroImages = [{% for img in heroImages %}"{{ img }}",{% endfor %}];
+</script>
+<div id="top"></div>
+<header class="hero" id="hero">
+    <div class="hero-title">
+        <h1>{{ site.siteTitle }}</h1>
+        <p class="hero-subtitle">{{ site.tagline }}</p>
+    </div>
+    <div class="scroll-hint" id="scroll-hint">
+        {{ site.hero.scrollHint }}
+    </div>
+</header>

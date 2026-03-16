@@ -1,6 +1,10 @@
 {
-    "mode": "portfolio",
     "siteTitle": "biemmezeta",
+    "mode": "portfolio",
+    "hero": {
+        "mode": "random",
+        "scrollHint": "↓"
+    },
     "tagline": "Photographer based in Venice",
     "owner": "Brunetto Marco Ziosi",
     "image": "/assets/about/about.jpg",
@@ -15,9 +19,6 @@
     "instagram": "https://instagram.com/biemmezeta",
     "location": "Venice, Italy",
     "formspreeEndpoint": "https://formspree.io/f/mnjgjgea",
-    "hero": {
-        "mode": "random"
-    },
     "og": {
         "title": "Biemmezeta – Photographer",
         "description": "Portrait, documentary and travel photography from Venice.",

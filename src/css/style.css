@@ -588,6 +588,24 @@ textarea:-webkit-autofill {
     margin-bottom: 50px;
 }
 
+.menu-title {
+    text-align: center;
+    max-width: 900px;
+    margin: 100px auto 40px auto;
+    font-weight: 600;
+    position: relative;
+}
+
+.menu-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: currentColor;
+    opacity: 0.25;
+    margin: 12px auto 0 auto;
+}
+
 .textpage-photo {
     display: flex;
     justify-content: center;
@@ -622,4 +640,120 @@ textarea:-webkit-autofill {
     line-height: 1.75;
     font-size: 1.05rem;
     margin-bottom: 20px;
+}
+
+/* PRICELIST */
+/* .pricelist {
+    max-width: 520px;
+    margin: 100px auto;
+    padding: 0 20px;
+}
+
+.pricelist-title {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.pricelist-section {
+    max-width: 480px;
+    margin: 0 auto 50px auto;
+}
+
+.pricelist-line {
+    display: flex;
+    align-items: baseline;
+}
+
+.pricelist-name {
+    white-space: nowrap;
+}
+
+.pricelist-dots {
+    flex: 1;
+    border-bottom: 2px dotted rgba(255, 255, 255, 0.25);
+    margin: 0 8px;
+}
+
+.pricelist-price {
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.pricelist-desc {
+    opacity: 0.7;
+    font-size: 0.9rem;
+    margin-top: 3px;
+}
+
+.pricelist-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+} */
+
+.pricelist {
+    margin: 100px auto;
+    padding: 0 25px;
+    max-width: 900px;
+}
+
+.pricelist-section {
+    margin-bottom: 60px;
+}
+
+.pricelist-title {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.pricelist-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pricelist-line {
+    display: flex;
+    align-items: baseline;
+}
+
+.pricelist-name {
+    white-space: nowrap;
+}
+
+.pricelist-dots {
+    flex: 1;
+    border-bottom: 2px dotted rgba(255, 255, 255, 0.25);
+    margin: 0 10px;
+}
+
+.pricelist-price {
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.pricelist-desc {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 3px;
+}
+
+@media (min-width: 800px) {
+
+    .pricelist {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+    }
+
+}
+
+@media (max-width: 799px) {
+
+    .pricelist-section {
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 }

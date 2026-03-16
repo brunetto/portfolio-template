@@ -7,41 +7,7 @@ title: biemmezeta
     <link rel="stylesheet" href="js/photoswipe/photoswipe.css">
         <script src="js/navigation.js" defer></script>
         <script type="module" src="js/gallery.js"></script>
-        <script>
-            window.heroImages = [{% for img in heroImages %}"{{ img }}",{% endfor %}];
-        </script>
-        <div id="top"></div>
-        <header class="hero" id="hero">
-            <div class="hero-title">
-                <h1>{{ site.siteTitle }}</h1>
-                <p class="hero-subtitle">{{ site.tagline }}</p>
-            </div>
-            <div class="scroll-hint" id="scroll-hint">
-                ↓
-            </div>
-        </header>
-        <nav class="categories">
-            <a href="#top" class="home nav-link">biemmezeta</a>
-            {% for gallery in galleries %}
-                <a href="#{{ gallery.name }}" class="nav-link">
-                    {{ gallery.title }}
-                </a>
-            {% endfor %}
-            <a href="#contact" class="nav-link">Contacts</a>
-            <a href="/about">About</a>
-        </nav>
-        {% for gallery in galleries %}
-            <section id="{{ gallery.name }}" class="section">
-                <h2 class="section-title">
-                    {{ gallery.title }}
-                </h2>
-                <div class="gallery">
-                    {% for photo in gallery.photos %}
-                        {% image photo,
-                gallery.title %}
-                    {% endfor %}
-                </div>
-            </section>
-        {% endfor %}
-        {# {% include "services.njk" %}
-                                                                        {% include "contact.njk" %} #}
+        {% include "hero.njk" %}
+        {% include "wall-nav.njk" %}
+        {% include "wall.njk" %}
+        {# {% include "pricelist.njk" %} #}
