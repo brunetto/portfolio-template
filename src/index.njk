@@ -3,7 +3,6 @@ layout: layout.njk
 title: biemmezeta 
 ---
 
-{# eccezione per far funzionare i path #}
 <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="js/photoswipe/photoswipe.css">
         <script src="js/navigation.js" defer></script>
@@ -14,8 +13,8 @@ title: biemmezeta
         <div id="top"></div>
         <header class="hero" id="hero">
             <div class="hero-title">
-                <h1>biemmezeta</h1>
-                <p class="hero-subtitle">Photographer based in Venice</p>
+                <h1>{{ site.siteTitle }}</h1>
+                <p class="hero-subtitle">{{ site.tagline }}</p>
             </div>
             <div class="scroll-hint" id="scroll-hint">
                 ↓
@@ -45,4 +44,4 @@ title: biemmezeta
             </section>
         {% endfor %}
         {# {% include "services.njk" %}
-                {% include "contact.njk" %} #}
+                                                                        {% include "contact.njk" %} #}

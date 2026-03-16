@@ -11,19 +11,17 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap"
             rel="stylesheet">
-        <meta property="og:title" content="Biemmezeta – Photographer">
-        <meta property="og:description" content="Portrait, documentary and travel photography from Venice.">
+        <meta property="og:title" content="{{ site.og.title }}">
+        <meta property="og:description" content="{{ site.og.description }}">
         <meta property="og:type" content="website">
         <script type="application/ld+json">
-            { "@context": "https://schema.org", "@type": "Person", "name": "Brunetto Marco Ziosi", "jobTitle": "Photographer",
-            "url": "https://biemmezeta.com", "sameAs": ["https://www.instagram.com/biemmezeta"] }
+            { "@context": "https://schema.org", "@type": "Person", "name": "{{ site.owner }}",
+              "jobTitle": "{{ site.jobTitle }}",
+              "url": "{{ site.url }}",
+              "image": "{{ site.url }}{{ site.image }}",
+              "sameAs": {{ site.sameAs | dump | safe }} }
         </script>
-        {# <base href="{{ '/' | url }}"> #}
-        {# <link rel="stylesheet" href="{{ basePath }}css/style.css?{{ build.time }}"> #}
-        {# <link rel="stylesheet" href="{{ basePath }}js/photoswipe/photoswipe.css"> #}
-        {# <script src="{{ basePath }}js/navigation.js" defer="defer"></script> #}
-        {# <script type="module" src="{{ basePath }}js/gallery.js" defer="defer"></script> #}
-        {# <link rel="icon" href="{{ basePath }}favicon.ico"> #} <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../js/photoswipe/photoswipe.css">
         <script src="../js/navigation.js" defer></script>
         <script type="module" src="../js/gallery.js"></script>
@@ -32,13 +30,14 @@
     <body>
         {% if page.url != '/' %}
             <header class="site-header">
-                <a href="/" class="site-logo">biemmezeta</a>
+                <a href="/" class="site-logo">{{ site.siteTitle }}</a>
             </header>
         {% endif %}
         <main>
             {{ content | safe }}
             {% include "services.njk" %}
             {% include "contact.njk" %}
+            {% include "footer.njk" %}
         </main>
         {% if pageScripts %}
             {{ pageScripts | safe }}

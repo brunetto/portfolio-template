@@ -67,57 +67,65 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const sections = document.querySelectorAll(".section");
     const navLinks = document.querySelectorAll(".nav-link");
-    if (!sections.length || !navLinks.length) return;
+    if (sections.length && navLinks.length) {
 
-    let ticking = false;
+        let ticking = false;
 
-    function updateActiveSection() {
+        function updateActiveSection() {
 
-        let currentSection = null;
-        let minDistance = Infinity;
+            let currentSection = null;
+            let minDistance = Infinity;
 
-        sections.forEach(section => {
+            sections.forEach(section => {
 
-            const rect = section.getBoundingClientRect();
-            const distance = Math.abs(rect.top - 80); // 80px ≈ navbar
+                const rect = section.getBoundingClientRect();
+                const distance = Math.abs(rect.top - 80); // 80px ≈ navbar
 
-            if (distance < minDistance) {
-                minDistance = distance;
-                currentSection = section;
-            }
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    currentSection = section;
+                }
 
-        });
-
-        if (!currentSection) return;
-
-        const id = currentSection.getAttribute("id");
-
-        navLinks.forEach(link => {
-
-            link.classList.remove("active");
-
-            if (link.getAttribute("href") === "#" + id) {
-                link.classList.add("active");
-            }
-
-        });
-
-    }
-
-    // window.addEventListener("scroll", updateActiveSection);
-    window.addEventListener("scroll", () => {
-        if (!ticking) {
-
-            window.requestAnimationFrame(() => {
-                updateActiveSection();
-                ticking = false;
             });
 
-            ticking = true;
+            if (!currentSection) return;
+
+            const id = currentSection.getAttribute("id");
+
+            navLinks.forEach(link => {
+
+                link.classList.remove("active");
+
+                if (link.getAttribute("href") === "#" + id) {
+                    link.classList.add("active");
+                }
+
+            });
 
         }
 
-    });
+        // window.addEventListener("scroll", updateActiveSection);
+        window.addEventListener("scroll", () => {
+            if (!ticking) {
 
-    window.addEventListener("load", updateActiveSection);
+                window.requestAnimationFrame(() => {
+                    updateActiveSection();
+                    ticking = false;
+                });
+
+                ticking = true;
+
+            }
+
+        });
+
+        window.addEventListener("load", updateActiveSection);
+    }
+    const yearEl = document.getElementById("year");
+    if (yearEl) {
+        const currentYear = new Date().getFullYear();
+        if (yearEl.textContent != currentYear) {
+            yearEl.textContent = currentYear;
+        }
+    }
 });

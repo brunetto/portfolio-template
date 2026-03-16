@@ -240,12 +240,19 @@ body.scrolled .scroll-hint {
 
     transition: transform .25s ease,
         opacity .25s ease;
+    /* ottimizzazione per le trasformazioni 3D,
+     nasconde il retro dell'elemento durante le trasformazioni, evitando artefatti visivi */
+    backface-visibility: hidden;
 }
 
 /* fa capire all'utente che può zoommare */
 .gallery-item {
     display: block;
     cursor: zoom-in;
+
+    /* ottimizzazione per le trasformazioni,
+    indica al browser che l'elemento subirà trasformazioni, migliorando le prestazioni*/
+    will-change: transform;
 }
 
 .gallery-item:hover img {
@@ -545,4 +552,70 @@ a:visited {
     font-size: 0.95rem;
     line-height: 1.6;
     opacity: 0.8;
+}
+
+.textpage {
+    max-width: 720px;
+    margin: 80px auto;
+    padding: 0 24px;
+    text-align: justify;
+}
+
+.site-footer {
+    padding: 24px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.data-controller {
+    text-align: center;
+}
+
+/* TEXTPAGE */
+.textpage {
+    max-width: 640px;
+    margin: 80px auto;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.textpage h1 {
+    font-size: 2rem;
+    margin-bottom: 50px;
+}
+
+.textpage-photo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.textpage-photo img {
+    width: 240px;
+    border-radius: 3px;
+}
+
+.textpage-intro {
+    line-height: 1.6;
+    margin-bottom: 30px;
+
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+    font-size: clamp(1.15rem, 1.2vw, 1.35rem);
+    letter-spacing: 0.01em;
+}
+
+.textpage-text {
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: justify;
+    hyphens: auto;
+}
+
+.textpage-text p {
+    line-height: 1.75;
+    font-size: 1.05rem;
+    margin-bottom: 20px;
 }
