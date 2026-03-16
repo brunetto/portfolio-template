@@ -15,17 +15,14 @@
         <meta property="og:description" content="{{ site.og.description }}">
         <meta property="og:type" content="website">
         <script type="application/ld+json">
-            { "@context": "https://schema.org", "@type": "Person", "name": "{{ site.owner }}",
-              "jobTitle": "{{ site.jobTitle }}",
-              "url": "{{ site.url }}",
-              "image": "{{ site.url }}{{ site.image }}",
-              "sameAs": {{ site.sameAs | dump | safe }} }
+            { "@context": "https://schema.org", "@type": "Person", "name": "{{ site.owner }}", "jobTitle": "{{ site.jobTitle }} ", "url": "{{ site.url }}
+            ", "image": "{{ site.url }}{{ site.image }}", "sameAs": {{ site.sameAs | dump | safe }} }
         </script>
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../js/photoswipe/photoswipe.css">
-        <script src="../js/navigation.js" defer></script>
-        <script type="module" src="../js/gallery.js"></script>
-        <link rel="icon" href="../favicon.ico">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/js/photoswipe/photoswipe.css">
+        <script src="/js/navigation.js" defer></script>
+        <script type="module" src="/js/gallery.js"></script>
+        <link rel="icon" href="/favicon.ico">
     </head>
     <body>
         {% if page.url != '/' %}
