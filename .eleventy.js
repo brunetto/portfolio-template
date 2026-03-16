@@ -59,6 +59,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/css");
     eleventyConfig.addPassthroughCopy("src/robots.txt");
     eleventyConfig.addPassthroughCopy("src/favicon.ico");
+    // copio la cartella admin per Netlify CMS
+    eleventyConfig.addPassthroughCopy("src/admin");
 
     // aggiungo un dato globale con il timestamp di build, 
     // così posso forzare il refresh delle immagini in cache
