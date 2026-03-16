@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: brunetto/biemmezeta.github.io
+  name: git-gateway
   branch: main
 
   base_url: https://decap-cms-oauth.netlify.app
