@@ -355,37 +355,31 @@ a:visited {
     -webkit-appearance: none;
     border: none;
     border-bottom: 1px solid #ccc;
-    padding: 6px 0;
-    font-size: 1rem;
-    background: transparent;
-    padding: 8px 0;
-    font-size: 1rem;
     background: transparent;
     color: #fff;
-}
-
-.form-field input:focus,
-.form-field textarea:focus {
-    outline: none;
-    border-bottom: 1px solid #000;
-}
-
-.form-field input::placeholder,
-.form-field textarea::placeholder {
-    color: #aaa;
+    padding: 8px 0;
+    font-size: 1rem;
+    width: 100%;
 }
 
 .form-field input:focus,
 .form-field textarea:focus {
     outline: none;
     border-bottom: 1px solid #fff;
+    transition: border-color .2s ease;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: #aaa;
+    opacity: 1;
 }
 
 .form-field textarea {
     resize: vertical;
 }
 
-.form-submit {
+/* .form-submit {
     margin-top: 20px;
     border: 1px solid currentColor;
     background: none;
@@ -395,6 +389,15 @@ a:visited {
 
 .form-submit:hover {
     opacity: 0.7;
+} */
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill {
+
+    -webkit-box-shadow: 0 0 0 1000px #111 inset;
+    -webkit-text-fill-color: #fff;
+
 }
 
 .contact button {
@@ -404,6 +407,7 @@ a:visited {
     color: inherit;
     padding: 10px 20px;
     margin-top: 20px;
+
     cursor: pointer;
 }
 
