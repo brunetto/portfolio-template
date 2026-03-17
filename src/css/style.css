@@ -1,56 +1,54 @@
+/* ================= BASE ================= */
+
 html {
     scroll-behavior: smooth;
 }
 
-/* nascondo i titoli delle sezioni lungo il wall */
-.section-title {
-    display: none;
-    /* margin-bottom: 30px; */
+/* definisco variabili CSS per colori e font, 
+in modo da poterli facilmente modificare in un unico punto */
+:root {
+    --color-bg: #111;
+    --color-text: #ffffff;
+    --color-text-muted: rgba(255, 255, 255, 0.6);
+    --color-text-faint: rgba(255, 255, 255, 0.25);
+    --font-base: "Source Sans 3", system-ui, sans-serif;
+    --font-display: "Bona Nova", serif;
 }
 
+/* imposto uno sfondo scuro per tutto il sito, testo bianco e font di base */
 body {
     margin: 0;
-    background: #111;
-    color: white;
-    /* font-family: system-ui; */
-    font-family: "Source Sans 3", system-ui, sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-base);
 }
 
+/* il main avrà posizione relativa 
+per poter posizionare elementi assoluti al suo interno */
 main {
-    background: #111;
     position: relative;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero {
     position: relative;
-
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* titolo un pelo più in basso*/
-    /* padding-bottom: 12vh; */
-
-    /* font-size: 4rem; */
-    color: white;
+    color: var(--color-text);
 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
 }
 
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
-
-    /* background: rgba(0, 0, 0, 0.35); */
-    background: linear-gradient(rgba(0, 0, 0, 0.25),
-            rgba(0, 0, 0, 0.65));
-
+    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.65));
     z-index: 1;
 }
 
@@ -60,31 +58,12 @@ main {
     left: 0;
     right: 0;
     bottom: -1px;
-
     height: 160px;
-
-    background: linear-gradient(transparent,
-            #111);
+    background: linear-gradient(transparent, var(--color-bg));
     pointer-events: none;
 }
 
-/* .hero h1 {
-    position: relative;
-    z-index: 2;
-
-    /* max-width: 10ch; */
-/* text-align: center; */
-/* regola la dimensione del font a seconda dello schermo ma senza esagerare */
-/* font-size: clamp(2.5rem, 6vw, 4rem); */
-/* letter-spacing: -0.02em; */
-/* font-family: "Cormorant Garamond", serif; */
-/* font-family: "Libre Baskerville", serif; */
-/* font-family: "Bona Nova", */
-/* serif; */
-/* text-transform: uppercase; */
-/* } */
-
-*/ .hero .logo {
+.hero .logo {
     position: relative;
     z-index: 2;
 }
@@ -92,16 +71,10 @@ main {
 .hero-title {
     position: relative;
     z-index: 2;
-    text-align: center;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    display: flex;
-}
-
-
-.hero-title h1 {
-    margin-bottom: 4px;
-    /* line-height: 1.05; */
+    text-align: center;
 }
 
 .hero-subtitle {
@@ -117,16 +90,12 @@ main {
     bottom: 6vh;
     left: 50%;
     transform: translateX(-50%);
-
     font-size: 3rem;
+    transition: opacity 0.3s;
     color: rgba(255, 255, 255, 0.9);
-
     text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-
     animation: scrollBounce 1.8s infinite;
     opacity: 0.8;
-    transition: opacity 0.3s;
-
     z-index: 3;
     cursor: pointer;
 }
@@ -147,7 +116,65 @@ body.scrolled .scroll-hint {
     }
 }
 
-/* MENU CATEGORIE */
+/* ================= LOGO ================= */
+
+.logo {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    line-height: 1;
+}
+
+/* HERO */
+.logo--hero {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.logo--hero .logo-text {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+.logo-text {
+    display: block;
+    font-family: var(--font-display);
+
+    letter-spacing: 0.02em;
+}
+
+/* NAVBAR / HEADER */
+.logo--nav,
+.logo--header {
+    max-width: 160px;
+}
+
+/* NAV */
+.logo--nav .logo-text {
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+}
+
+/* HEADER pagine */
+.logo--header .logo-text {
+    font-size: 1rem;
+}
+
+.logo-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ================= HEADER ================= */
+.site-header {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    z-index: 10;
+}
+
+/* ================= NAV ================= */
+
 .categories {
     position: sticky;
     top: 0;
@@ -159,15 +186,8 @@ body.scrolled .scroll-hint {
     gap: 12px;
 
     padding: 20px;
-    background: #111;
-    transition: all 0.25s ease;
-}
-
-.categories .home {
-    font-size: large;
-    font-weight: 800;
-    margin-right: 20px;
-    font-family: "Bona Nova", serif;
+    background: var(--color-bg);
+    transition: all .25s ease;
 }
 
 .categories.scrolled {
@@ -177,26 +197,25 @@ body.scrolled .scroll-hint {
 }
 
 .categories a {
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none;
-
+    color: var(--color-text-muted);
     font-size: 14px;
-    font-weight: 500;
     letter-spacing: 0.08em;
-
+    text-decoration: none;
+    font-weight: 500;
     transition: color 0.2s ease;
 }
 
 .categories a:hover {
-    color: white;
+    color: var(--color-text);
 }
 
 .categories a.active {
-    color: white;
-    border-bottom: 1px solid white;
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-text);
 }
 
-/* SEZIONI */
+/* ================= SECTIONS ================= */
+
 .section {
     padding: 10px 24px;
     scroll-margin-top: 50px;
@@ -204,14 +223,44 @@ body.scrolled .scroll-hint {
 
 /* su schermi piccoli, riduco un po' il padding delle sezioni */
 @media (max-width: 700px) {
-
     .section {
         padding: 64px 20px 32px;
     }
-
 }
 
-/* GALLERY */
+/* quando presenti formatto bene i titoli delle sezioni */
+.section-title {
+    text-align: center;
+    margin: 60px auto 60px auto;
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    position: relative;
+}
+
+/* ================== LINKS ================== */
+
+/* per i link normali, aggiungo un sottolineato 
+animato al passaggio del mouse, 
+ma non per quelli della galleria o del logo */
+a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+a:not(.gallery-item):not(.logo):hover {
+    border-bottom: 1px solid currentColor;
+}
+
+a:visited {
+    color: inherit;
+}
+
+/* ================= GALLERY (WALL) ================= */
+
 /* laypout justified della griglia */
 .gallery {
     display: flex;
@@ -238,17 +287,14 @@ body.scrolled .scroll-hint {
     display: block;
 }
 
-/* IMMAGINI */
-
 .gallery img {
     width: 100%;
     height: auto;
     display: block;
-
-    transition: transform .25s ease,
-        opacity .25s ease;
+    transition: transform .25s ease, opacity .25s ease;
     /* ottimizzazione per le trasformazioni 3D,
-     nasconde il retro dell'elemento durante le trasformazioni, evitando artefatti visivi */
+     nasconde il retro dell'elemento durante le trasformazioni, 
+     evitando artefatti visivi */
     backface-visibility: hidden;
 }
 
@@ -266,35 +312,96 @@ body.scrolled .scroll-hint {
     transform: scale(1.03);
 }
 
-/* ABOUT */
+/* ================= ABOUT ================= */
 
 .about {
-    max-width: 720px;
-    margin: 160px auto;
-    padding: 0 20px;
+    max-width: 640px;
+    margin: 80px auto;
+    padding: 0 24px;
+    text-align: center;
 }
 
 .about h1 {
+    font-size: 2rem;
     margin-bottom: 40px;
 }
 
-.about p {
-    line-height: 1.7;
+.about-photo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.about-photo img {
+    width: 240px;
+    border-radius: 3px;
+}
+
+.about-nav {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    z-index: 1000;
+}
+
+.about-nav a {
+    text-decoration: none;
+    opacity: 0.85;
+}
+
+.about-nav a:hover {
+    opacity: 1;
+}
+
+/* contenitore del testo */
+.about-intro {
+    font-size: clamp(1.15rem, 1.2vw, 1.35rem);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.about-text {
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: justify;
+    hyphens: auto;
+}
+
+.about-text p {
+    line-height: 1.75;
+    font-size: 1.05rem;
     margin-bottom: 20px;
 }
 
-.about-intro {
-    font-size: 1.2rem;
+
+/*================= TEXTPAGE ================= */
+
+.textpage {
+    max-width: 640px;
+    margin: 80px auto;
+    padding: 0 24px;
+    text-align: justify;
 }
 
-.about img {
-    width: 220px;
-    border-radius: 2px;
-    margin-bottom: 40px;
+.textpage h1 {
+    font-size: 2rem;
+    margin-bottom: 50px;
 }
 
+.textpage-intro {
+    max-width: 480px;
+    margin: 0 auto 30px;
+    font-size: clamp(1.15rem, 1.2vw, 1.35rem);
+}
 
-/* CONTACT */
+.textpage-text {
+    max-width: 700px;
+    margin: 80px auto;
+}
+
+/* ================= CONTACT ================= */
 
 #contact {
     scroll-margin-top: 80px;
@@ -324,21 +431,8 @@ body.scrolled .scroll-hint {
     padding-bottom: 2px;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-}
+/* ================= CONTACT FORM ================= */
 
-a:not(.gallery-item):not(.logo):hover {
-    border-bottom: 1px solid currentColor;
-}
-
-a:visited {
-    color: inherit;
-}
-
-/* CONTACT FORM */
 .contact-form {
     max-width: 600px;
     margin: 60px auto 0;
@@ -363,7 +457,7 @@ a:visited {
     border: none;
     border-bottom: 1px solid #ccc;
     background: transparent;
-    color: #fff;
+    color: var(--color-text);
     padding: 8px 0;
     font-size: 1rem;
     width: 100%;
@@ -386,25 +480,11 @@ a:visited {
     resize: vertical;
 }
 
-/* .form-submit {
-    margin-top: 20px;
-    border: 1px solid currentColor;
-    background: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.form-submit:hover {
-    opacity: 0.7;
-} */
-
 input:-webkit-autofill,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill {
-
     -webkit-box-shadow: 0 0 0 1000px #111 inset;
-    -webkit-text-fill-color: #fff;
-
+    -webkit-text-fill-color: var(--color-text);
 }
 
 .contact button {
@@ -422,76 +502,8 @@ textarea:-webkit-autofill {
     opacity: 0.7;
 }
 
-/* ABOUT NAV */
-.about-nav {
-    position: fixed;
-    top: 24px;
-    left: 24px;
-    font-family: "Bona Nova", serif;
-    font-size: 1.1rem;
-    z-index: 1000;
-}
 
-.about-nav a {
-    text-decoration: none;
-    opacity: 0.85;
-}
-
-.about-nav a:hover {
-    opacity: 1;
-}
-
-.about {
-    max-width: 640px;
-    margin: 80px auto;
-    padding: 0 24px;
-    text-align: center;
-}
-
-.about h1 {
-    font-size: 2rem;
-    margin-bottom: 50px;
-}
-
-.about-photo {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 60px;
-}
-
-.about-photo img {
-    width: 240px;
-    border-radius: 3px;
-}
-
-/* prima frase un po' più grande per evidenziare l'introduzione */
-.about-intro {
-    line-height: 1.6;
-    margin-bottom: 30px;
-
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: 500;
-    font-size: clamp(1.15rem, 1.2vw, 1.35rem);
-    letter-spacing: 0.01em;
-}
-
-/* contenitore del testo */
-.about-text {
-    max-width: 480px;
-    margin: 0 auto;
-    text-align: justify;
-    hyphens: auto;
-}
-
-.about-text p {
-    line-height: 1.75;
-    font-size: 1.05rem;
-    margin-bottom: 20px;
-}
-
-/* services */
+/* ================= SERVICES ================= */
 
 .services {
     margin: 140px auto 40px;
@@ -520,22 +532,10 @@ textarea:-webkit-autofill {
 }
 
 .services-links a:hover {
-    color: white;
+    color: var(--color-text);
 }
 
-/* HEADER */
-.site-header {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    z-index: 10;
-}
-
-.site-header .logo {
-    max-width: 140px;
-}
-
-/* COMING SOON */
+/* ================= COMING SOON ================= */
 
 .comingsoon {
     min-height: 100vh;
@@ -551,7 +551,7 @@ textarea:-webkit-autofill {
 }
 
 .comingsoon h1 {
-    font-family: "Bona Nova", serif;
+    font-family: var(--font-display);
     font-size: 2rem;
     margin-bottom: 20px;
 }
@@ -562,36 +562,9 @@ textarea:-webkit-autofill {
     opacity: 0.8;
 }
 
-.textpage {
-    max-width: 720px;
-    margin: 80px auto;
-    padding: 0 24px;
-    text-align: justify;
-}
+/* ================= PRICELIST ================= */
 
-.site-footer {
-    padding: 24px;
-    font-size: 0.9rem;
-    opacity: 0.7;
-}
-
-.data-controller {
-    text-align: center;
-}
-
-/* TEXTPAGE */
-.textpage {
-    max-width: 640px;
-    margin: 80px auto;
-    padding: 0 24px;
-    text-align: center;
-}
-
-.textpage h1 {
-    font-size: 2rem;
-    margin-bottom: 50px;
-}
-
+/* titolo della pagina menu in cui viene inclusa la pricelist */
 .menu-title {
     text-align: center;
     max-width: 900px;
@@ -610,91 +583,7 @@ textarea:-webkit-autofill {
     margin: 12px auto 0 auto;
 }
 
-.textpage-photo {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 60px;
-}
-
-.textpage-photo img {
-    width: 240px;
-    border-radius: 3px;
-}
-
-.textpage-intro {
-    line-height: 1.6;
-    margin-bottom: 30px;
-
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: 500;
-    font-size: clamp(1.15rem, 1.2vw, 1.35rem);
-    letter-spacing: 0.01em;
-}
-
-.textpage-text {
-    max-width: 480px;
-    margin: 0 auto;
-    text-align: justify;
-    hyphens: auto;
-}
-
-.textpage-text p {
-    line-height: 1.75;
-    font-size: 1.05rem;
-    margin-bottom: 20px;
-}
-
-/* PRICELIST */
-/* .pricelist {
-    max-width: 520px;
-    margin: 100px auto;
-    padding: 0 20px;
-}
-
-.pricelist-title {
-    text-align: center;
-    margin-bottom: 24px;
-}
-
-.pricelist-section {
-    max-width: 480px;
-    margin: 0 auto 50px auto;
-}
-
-.pricelist-line {
-    display: flex;
-    align-items: baseline;
-}
-
-.pricelist-name {
-    white-space: nowrap;
-}
-
-.pricelist-dots {
-    flex: 1;
-    border-bottom: 2px dotted rgba(255, 255, 255, 0.25);
-    margin: 0 8px;
-}
-
-.pricelist-price {
-    white-space: nowrap;
-    font-variant-numeric: tabular-nums;
-}
-
-.pricelist-desc {
-    opacity: 0.7;
-    font-size: 0.9rem;
-    margin-top: 3px;
-}
-
-.pricelist-items {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-} */
-
+/* pricelist inclusa nella pagina menu */
 .pricelist {
     margin: 100px auto;
     padding: 0 25px;
@@ -727,7 +616,7 @@ textarea:-webkit-autofill {
 
 .pricelist-dots {
     flex: 1;
-    border-bottom: 2px dotted rgba(255, 255, 255, 0.25);
+    border-bottom: 2px dotted var(--color-text-faint);
     margin: 0 10px;
 }
 
@@ -743,73 +632,31 @@ textarea:-webkit-autofill {
 }
 
 @media (min-width: 800px) {
-
     .pricelist {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 80px;
     }
-
 }
 
 @media (max-width: 799px) {
-
     .pricelist-section {
         max-width: 520px;
         margin-left: auto;
         margin-right: auto;
     }
-
 }
 
-.logo {
-    text-decoration: none;
-    color: inherit;
-    display: inline-block;
-    line-height: 1;
+/* ================= PRIVACY ================= */
+
+.data-controller {
+    text-align: center;
 }
 
-/* HERO */
-.logo--hero {
-    max-width: 600px;
-    margin: 0 auto;
-}
+/* ================= FOOTER ================= */
 
-/* NAVBAR / HEADER */
-.logo--nav,
-.logo--header {
-    max-width: 160px;
-}
-
-:root {
-    --font-display: "Bona Nova", serif;
-}
-
-.logo-text {
-    display: block;
-    font-family: var(--font-display);
-
-    letter-spacing: 0.02em;
-}
-
-/* HERO */
-.logo--hero .logo-text {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-}
-
-/* NAV */
-.logo--nav .logo-text {
-    font-size: 1.1rem;
-    letter-spacing: 0.08em;
-}
-
-/* HEADER pagine */
-.logo--header .logo-text {
-    font-size: 1rem;
-}
-
-.logo-svg {
-    width: 100%;
-    height: auto;
-    display: block;
+.site-footer {
+    padding: 24px;
+    font-size: 0.9rem;
+    opacity: 0.7;
 }

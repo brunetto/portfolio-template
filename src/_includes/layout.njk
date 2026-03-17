@@ -27,19 +27,17 @@
     <body>
         {% if page.url != '/' %}
             <header class="site-header">
-                <a href="/" class="site-logo">
-                    {% set logoVariant = "header" %}
-                    {% include "logo.njk" %}</a>
-            </header>
-        {% endif %}
-        <main>
-            {{ content | safe }}
-            {% include "services.njk" %}
-            {% include "contact.njk" %}
-            {% include "footer.njk" %}
-        </main>
-        {% if pageScripts %}
-            {{ pageScripts | safe }}
-        {% endif %}
-    </body>
-</html>
+                {% set logoVariant = "header" %}
+                {% include "logo.njk" %}</a>
+        </header>
+    {% endif %}
+    <main>
+        {{ content | safe }}
+        {% include "services.njk" %}
+        {% include "contact.njk" %}
+        {% include "footer.njk" %}
+    </main>
+    {% if pageScripts %}
+        {{ pageScripts | safe }}
+    {% endif %}
+</html></body></html>

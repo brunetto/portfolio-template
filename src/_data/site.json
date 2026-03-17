@@ -1,12 +1,15 @@
 {
     "siteTitle": "biemmezeta",
+    "tagline": "Photographer based in Venice",
     "logoStyle": "text",
     "mode": "portfolio",
     "hero": {
         "mode": "random",
         "scrollHint": "↓"
     },
-    "tagline": "Photographer based in Venice",
+    "gallery": {
+        "showTitles": false
+    },
     "owner": "Brunetto Marco Ziosi",
     "image": "/assets/about/about.jpg",
     "url": "https://biemmezeta.com",
