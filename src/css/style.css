@@ -68,19 +68,25 @@ main {
     pointer-events: none;
 }
 
-.hero h1 {
+/* .hero h1 {
     position: relative;
     z-index: 2;
 
     /* max-width: 10ch; */
-    text-align: center;
-    /* regola la dimensione del font a seconda dello schermo ma senza esagerare */
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    /* letter-spacing: -0.02em; */
-    /* font-family: "Cormorant Garamond", serif; */
-    /* font-family: "Libre Baskerville", serif; */
-    font-family: "Bona Nova", serif;
-    /* text-transform: uppercase; */
+/* text-align: center; */
+/* regola la dimensione del font a seconda dello schermo ma senza esagerare */
+/* font-size: clamp(2.5rem, 6vw, 4rem); */
+/* letter-spacing: -0.02em; */
+/* font-family: "Cormorant Garamond", serif; */
+/* font-family: "Libre Baskerville", serif; */
+/* font-family: "Bona Nova", */
+/* serif; */
+/* text-transform: uppercase; */
+/* } */
+
+*/ .hero .logo {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-title {
@@ -91,6 +97,7 @@ main {
     align-items: center;
     display: flex;
 }
+
 
 .hero-title h1 {
     margin-bottom: 4px;
@@ -323,7 +330,7 @@ a {
     border-bottom: 1px solid transparent;
 }
 
-a:not(.gallery-item):hover {
+a:not(.gallery-item):not(.logo):hover {
     border-bottom: 1px solid currentColor;
 }
 
@@ -524,11 +531,8 @@ textarea:-webkit-autofill {
     z-index: 10;
 }
 
-.site-logo {
-    font-family: "Bona Nova", serif;
-    font-size: 1.1rem;
-    letter-spacing: 0.08em;
-    text-decoration: none;
+.site-header .logo {
+    max-width: 140px;
 }
 
 /* COMING SOON */
@@ -756,4 +760,56 @@ textarea:-webkit-autofill {
         margin-right: auto;
     }
 
+}
+
+.logo {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    line-height: 1;
+}
+
+/* HERO */
+.logo--hero {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* NAVBAR / HEADER */
+.logo--nav,
+.logo--header {
+    max-width: 160px;
+}
+
+:root {
+    --font-display: "Bona Nova", serif;
+}
+
+.logo-text {
+    display: block;
+    font-family: var(--font-display);
+
+    letter-spacing: 0.02em;
+}
+
+/* HERO */
+.logo--hero .logo-text {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+/* NAV */
+.logo--nav .logo-text {
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+}
+
+/* HEADER pagine */
+.logo--header .logo-text {
+    font-size: 1rem;
+}
+
+.logo-svg {
+    width: 100%;
+    height: auto;
+    display: block;
 }

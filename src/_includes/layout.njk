@@ -27,7 +27,9 @@
     <body>
         {% if page.url != '/' %}
             <header class="site-header">
-                <a href="/" class="site-logo">{{ site.siteTitle }}</a>
+                <a href="/" class="site-logo">
+                    {% set logoVariant = "header" %}
+                    {% include "logo.njk" %}</a>
             </header>
         {% endif %}
         <main>

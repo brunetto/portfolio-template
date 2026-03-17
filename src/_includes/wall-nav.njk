@@ -1,5 +1,8 @@
 <nav class="categories">
-    <a href="#top" class="home nav-link">{{ site.siteTitle }}</a>
+    <a href="#top" class="home nav-link">
+        {% set logoVariant = "nav" %}
+        {% include "logo.njk" %}
+    </a>
     {% for gallery in galleries %}
         <a href="#{{ gallery.name }}" class="nav-link">
             {{ gallery.title }}

@@ -4,7 +4,8 @@
 <div id="top"></div>
 <header class="hero" id="hero">
     <div class="hero-title">
-        <h1>{{ site.siteTitle }}</h1>
+        {% set logoVariant = "hero" %}
+        {% include "logo.njk" %}
         <p class="hero-subtitle">{{ site.tagline }}</p>
     </div>
     <div class="scroll-hint" id="scroll-hint">

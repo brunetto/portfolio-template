@@ -1,0 +1,8 @@
+{% set variant = logoVariant or "default" %}
+<a href="/" class="logo logo--{{ variant }}">
+    {% if site.logoStyle == "svg" %}
+        {% include "logo-svg.njk" %}
+    {% else %}
+        <span class="logo-text">{{ site.siteTitle }}</span>
+    {% endif %}
+</a>

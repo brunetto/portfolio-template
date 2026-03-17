@@ -1,5 +1,6 @@
 {
     "siteTitle": "biemmezeta",
+    "logoStyle": "text",
     "mode": "portfolio",
     "hero": {
         "mode": "random",
