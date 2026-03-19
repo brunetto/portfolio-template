@@ -5,16 +5,17 @@ title: biemmezeta
 
 <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="js/photoswipe/photoswipe.css">
-        <script src="js/navigation.js" defer></script>
+        <script src="js/navigation.js" defer="defer"></script>
         <script type="module" src="js/gallery.js"></script>
         {% include "hero.njk" %}
         <div id="content-start"></div>
         {% if site.components.wall.withNav %}
             {% include "wall-nav.njk" %}
         {% endif %}
-        {# {% if site.components.wall.isActive %} #}
-        {# {% include "wall.njk" %} #}
-        {# {% endif %} #}
-            {% if site.components.pricelist.isActive %}
-        {% include "pricelist.njk" %}
-    {% endif %}
+        {% if site.components.wall.isActive === true %}
+            {% include "wall.njk" %}
+        {% endif %}
+        {% if site.components.pricelist.isActive %}
+            {% include "pricelist.njk" %}
+        {% endif %}
+    </p>
