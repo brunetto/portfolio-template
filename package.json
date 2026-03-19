@@ -1,5 +1,5 @@
 {
-    "name": "biemmezeta.github.io",
+    "name": "portfolio-template",
     "version": "1.0.0",
     "description": "",
     "main": ".eleventy.js",
@@ -10,16 +10,16 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/brunetto/biemmezeta.github.io.git"
+        "url": "git+https://github.com/brunetto/portfolio-template.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "type": "commonjs",
     "bugs": {
-        "url": "https://github.com/brunetto/biemmezeta.github.io/issues"
+        "url": "https://github.com/brunetto/portfolio-template/issues"
     },
-    "homepage": "https://github.com/brunetto/biemmezeta.github.io#readme",
+    "homepage": "https://github.com/brunetto/portfolio-template#readme",
     "dependencies": {
         "@11ty/eleventy": "^3.1.2",
         "@11ty/eleventy-img": "^6.0.4",

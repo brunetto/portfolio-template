@@ -1,31 +1,49 @@
 {
-    "siteTitle": "biemmezeta",
-    "tagline": "Photographer based in Venice",
+    "siteTitle": "HANKY PANKY",
+    "tagline": "Cocktail culture in Venice",
     "logoStyle": "text",
-    "mode": "portfolio",
+    "mode": "business",
     "hero": {
-        "mode": "random",
-        "scrollHint": "↓"
+        "scrollHint": "↓ MENU ↓"
     },
-    "gallery": {
-        "showTitles": false
+    "components": {
+        "pricelist": {
+            "isActive": true
+        },
+        "services": {
+            "isActive": false
+        },
+        "wall": {
+            "isActive": false,
+            "withNav": false,
+            "withTitles": false
+        }
     },
-    "owner": "Brunetto Marco Ziosi",
-    "image": "/assets/about/about.jpg",
     "url": "https://biemmezeta.com",
-    "sameAs": [
-        "https://www.instagram.com/biemmezeta"
-    ],
-    "jobTitle": "Photographer",
-    "email": "info@biemmezeta.com",
-    "phone": "+393474958152",
-    "whatsappLink": "https://wa.me/393474958152",
-    "instagram": "https://instagram.com/biemmezeta",
-    "location": "Venice, Italy",
-    "formspreeEndpoint": "https://formspree.io/f/mnjgjgea",
+    "owner": {
+        "name": "Luca",
+        "image": "/assets/about/about.jpg",
+        "sameAs": [
+            "https://www.instagram.com/biemmezeta"
+        ],
+        "jobTitle": "Bartendeer"
+    },
+    "contacts": {
+        "contactText": "Hanky Panky\nCalle Giovanni Legrenzi, 5, 30171 Venezia VE, Italy",
+        "email": "info@biemmezeta.com",
+        "phone": "+393474958152",
+        "whatsappLink": "https://wa.me/393474958152",
+        "instagram": "https://instagram.com/biemmezeta",
+        "location": {
+            "name": "Hanky Panky",
+            "address": "Calle Giovanni Legrenzi, 5, 30171 Venezia VE, Italy",
+            "mapsEmbed": "https://www.google.com/maps?q=Calle+Giovanni+Legrenzi,+5,+30171+Venezia+VE,+Italy&output=embed"
+        },
+        "formspreeEndpoint": ""
+    },
     "og": {
-        "title": "Biemmezeta – Photographer",
-        "description": "Portrait, documentary and travel photography from Venice.",
+        "title": "Hanky Panky - Cocktail culture in Venice",
+        "description": "Hanky Panky is a cocktail bar located in Venice, Italy. We offer a unique experience of cocktail culture, combining traditional recipes with modern techniques and local ingredients.",
         "image": "/assets/og-image.jpg"
     },
     "creator": {

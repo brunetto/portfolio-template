@@ -1,29 +1,32 @@
 <section id="contact" class="contact section">
     <h2>Contacts</h2>
     <p class="contact-text">
-        Based in Venice. Available Worldwide.<br>
-            {# Portraits, events, documentary and weddings. #}
-        </p>
-        <p class="contact-links">
-            <a href="mailto:{{site.email}}">Mail</a>,
-            <a href="{{site.whatsappLink}}" target="_blank">WhatsApp</a>,
-            <a href="{{site.instagram}}" target="_blank">Instagram</a>
-        </p>
-        <div class="contact-form">
-            <form action="{{ site.formspreeEndpoint }}" method="POST" autocomplete="off">
-                <input type="hidden" name="_redirect" value="https://biemmezeta.com/thanks/">
-                    <input type="text" name="_gotcha" style="display:none">
-                        <div class="form-field">
-                            <label>Name</label>
-                            <input type="text" name="name" required="required" autocomplete="name"></div>
-                            <div class="form-field">
-                                <label>Email</label>
-                                <input type="email" name="email" required="required" autocomplete="email"></div>
-                                <div class="form-field">
-                                    <label>Message</label>
-                                    <textarea name="message" rows="4" required="required" autocomplete="off"></textarea>
-                                </div>
-                                <button type="submit">Send message</button>
-                            </form>
-                        </div>
-                    </section>
+        {% if site.contacts.contactText %}
+            {{ site.contacts.contactText }}
+        {% endif %}
+    </p>
+    <p class="contact-links">
+        {% if site.contacts.email %}
+            <a href="mailto:{{ site.contacts.email }}">Mail</a>
+            {% if site.contacts.whatsappLink or site.contacts.instagram %},
+            {% endif %}
+        {% endif %}
+        {% if site.contacts.whatsappLink %}
+            <a href="{{ site.contacts.whatsappLink }}" target="_blank">WhatsApp</a>
+            {% if site.contacts.instagram %},
+            {% endif %}
+        {% endif %}
+        {% if site.contacts.instagram %}
+            <a href="{{ site.contacts.instagram }}" target="_blank">Instagram</a>
+        {% endif %}
+    </p>
+    {% if site.mode == "portfolio" %}
+        {% include "contact-form.njk" %}
+    {% else %}
+        {% if site.contacts.location.mapsEmbed %}
+            <div class="contact-map">
+                <iframe src="{{ site.contacts.location.mapsEmbed }}" width="100%" height="300" style="border:0;" loading="lazy"></iframe>
+            </div>
+        {% endif %}
+    {% endif %}
+</section>

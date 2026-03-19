@@ -98,6 +98,17 @@ main {
     opacity: 0.8;
     z-index: 3;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+@media (max-width: 500px) {
+    .scroll-hint {
+        font-size: 2.2rem;
+        gap: 6px;
+    }
 }
 
 body.scrolled .scroll-hint {
@@ -423,6 +434,8 @@ a:visited {
 .contact-text {
     margin-bottom: 30px;
     line-height: 1.6;
+    /* mantiene i ritorni a capo presenti nel testo */
+    white-space: pre-line;
 }
 
 .contact-links a {

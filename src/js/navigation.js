@@ -28,20 +28,14 @@ window.addEventListener("DOMContentLoaded", () => {
     aggiungo un hint per invitare l'utente a scrollare, 
     che scompare quando si scrolla oltre i 100px */
     const scrollHint = document.getElementById("scroll-hint");
+
     if (scrollHint) {
         scrollHint.addEventListener("click", () => {
-
-            const firstSection = document.querySelector(".section");
-
-            if (firstSection) {
-                firstSection.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            }
-
+            document.getElementById("content-start")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
         });
-
     }
 
     /* NAVBAR CHE CAMBIA QUANDO SCORRO:

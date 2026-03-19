@@ -1,6 +1,6 @@
 {% for gallery in galleries %}
     <section id="{{ gallery.name }}" class="section">
-        {% if site.gallery.showTitles %}
+        {% if site.components.wall.withTitles %}
             <h2 class="section-title">{{ gallery.title }}</h2>
         {% endif %}
         <div class="gallery">

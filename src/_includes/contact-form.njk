@@ -1,0 +1,17 @@
+<div class="contact-form">
+    <form action="{{ site.formspreeEndpoint }}" method="POST" autocomplete="off">
+        <input type="hidden" name="_redirect" value="{{ '/thanks/' | url }}">
+            <input type="text" name="_gotcha" style="display:none">
+                <div class="form-field">
+                    <label>Name</label>
+                    <input type="text" name="name" required="required" autocomplete="name"></div>
+                    <div class="form-field">
+                        <label>Email</label>
+                        <input type="email" name="email" required="required" autocomplete="email"></div>
+                        <div class="form-field">
+                            <label>Message</label>
+                            <textarea name="message" rows="4" required="required"></textarea>
+                        </div>
+                        <button type="submit">Send message</button>
+                    </form>
+                </div>

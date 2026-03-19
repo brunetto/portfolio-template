@@ -15,8 +15,8 @@
         <meta property="og:description" content="{{ site.og.description }}">
         <meta property="og:type" content="website">
         <script type="application/ld+json">
-            { "@context": "https://schema.org", "@type": "Person", "name": "{{ site.owner }}", "jobTitle": "{{ site.jobTitle }} ", "url": "{{ site.url }}
-            ", "image": "{{ site.url }}{{ site.image }}", "sameAs": {{ site.sameAs | dump | safe }} }
+            { "@context": "https://schema.org", "@type": "Person", "name": "{{ site.owner.name }}", "jobTitle": "{{ site.owner.jobTitle }} ", "url": "{{ site.url }}
+            ", "image": "{{ site.url }}{{ site.owner.image }}", "sameAs": {{ site.owner.sameAs | dump | safe }} }
         </script>
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/js/photoswipe/photoswipe.css">
@@ -33,7 +33,9 @@
     {% endif %}
     <main>
         {{ content | safe }}
-        {% include "services.njk" %}
+        {% if site.mode == "portfolio" %}
+            {% include "services.njk" %}
+        {% endif %}
         {% include "contact.njk" %}
         {% include "footer.njk" %}
     </main>
