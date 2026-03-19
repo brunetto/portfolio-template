@@ -41,17 +41,17 @@ window.addEventListener("DOMContentLoaded", () => {
     /* NAVBAR CHE CAMBIA QUANDO SCORRO:
     aggiungo una classe "scrolled" alla navbar quando l'utente scrolla oltre i 100px, 
     e la rimuovo quando torna in cima */
-    const nav = document.querySelector(".categories");
-    if (nav) {
-        window.addEventListener("scroll", () => {
+    // const nav = document.querySelector(".categories");
+    // if (nav) {
+    //     window.addEventListener("scroll", () => {
 
-            if (window.scrollY > 100) {
-                nav.classList.add("scrolled");
-            } else {
-                nav.classList.remove("scrolled");
-            }
-        });
-    }
+    //         if (window.scrollY > 100) {
+    //             nav.classList.add("scrolled");
+    //         } else {
+    //             nav.classList.remove("scrolled");
+    //         }
+    //     });
+    // }
 
     /* SEZIONE ATTIVA NELLA NAVBAR:
     evidenzio il link della navbar 
