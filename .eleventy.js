@@ -102,6 +102,10 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addGlobalData("galleries", async () => {
 
         const base = path.join(process.cwd(), "photos");
+        if (!fs.existsSync(base)) {
+            console.warn("⚠️ No /photos folder found");
+            return [];
+        }
 
         const raw = fs.readdirSync(base)
             .filter(name =>
