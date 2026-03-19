@@ -198,13 +198,6 @@ body.scrolled .scroll-hint {
 
     padding: 20px;
     background: var(--color-bg);
-    transition: all .25s ease;
-}
-
-.categories.scrolled {
-    padding: 12px 20px;
-    gap: 24px;
-    background: rgba(17, 17, 17, 0.95);
 }
 
 .categories a {
