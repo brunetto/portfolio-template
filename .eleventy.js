@@ -156,6 +156,10 @@ module.exports = function (eleventyConfig) {
 
         const base = path.join(process.cwd(), "assets/wall");
 
+        if (!fs.existsSync(base)) {
+            return [];
+        }
+
         const raw = fs.readdirSync(base)
             .filter(name =>
                 fs.statSync(path.join(base, name)).isDirectory()
