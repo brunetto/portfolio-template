@@ -34,7 +34,9 @@
     <main>
         {{ content | safe }}
         {% if site.mode == "portfolio" %}
-            {% include "services.njk" %}
+            {% if site.components.services.isActive %}
+                {% include "services.njk" %}
+            {% endif %}
         {% endif %}
         {% include "contact.njk" %}
         {% include "footer.njk" %}

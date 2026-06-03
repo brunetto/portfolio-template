@@ -17,6 +17,9 @@
             "isActive": false,
             "withNav": false,
             "withTitles": false
+        },
+        "contactForm": {
+            "isActive": false
         }
     },
     "url": "https://biemmezeta.com",

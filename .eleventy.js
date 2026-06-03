@@ -49,6 +49,59 @@ async function processImages(galleries) {
     );
 }
 
+async function processGalleryFromDir(dirPath) {
+    const base = path.join(process.cwd(), dirPath);
+
+    if (!fs.existsSync(base)) {
+        return null;
+    }
+
+    const files = fs.readdirSync(base)
+        .filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file))
+        .map(file => path.join(dirPath, file));
+
+    const gallery = {
+        name: path.basename(dirPath),
+        title: formatTitle(path.basename(dirPath)),
+        photos: files
+    };
+
+    const processed = await processImages([gallery]);
+    return processed[0];
+}
+
+async function processPageGalleries() {
+    const pagesBase = path.join(process.cwd(), "assets/pages");
+
+    if (!fs.existsSync(pagesBase)) {
+        return {};
+    }
+
+    const pageDirs = fs.readdirSync(pagesBase)
+        .filter(name => fs.statSync(path.join(pagesBase, name)).isDirectory());
+
+    const result = {};
+
+    for (const pageName of pageDirs) {
+        const pagePath = path.join(pagesBase, pageName);
+
+        const galleryDirs = fs.readdirSync(pagePath)
+            .filter(name => fs.statSync(path.join(pagePath, name)).isDirectory());
+
+        result[pageName] = {};
+
+        for (const galleryName of galleryDirs) {
+            const gallery = await processGalleryFromDir(`assets/pages/${pageName}/${galleryName}`);
+
+            if (gallery) {
+                result[pageName][galleryName] = gallery;
+            }
+        }
+    }
+
+    return result;
+}
+
 module.exports = function (eleventyConfig) {
     // aggiungo il plugin per generare la sitemap
     eleventyConfig.addPlugin(require("@quasibit/eleventy-plugin-sitemap"), {
@@ -82,7 +135,7 @@ module.exports = function (eleventyConfig) {
         const files = fs.readdirSync(heroDir)
             .filter(file => /\.(jpg|jpeg|png)$/i.test(file));
 
-        return files.map(file => `./assets/hero/${file}`);
+        return files.map(file => `/assets/hero/${file}`);
 
     });
 
@@ -101,11 +154,7 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addGlobalData("galleries", async () => {
 
-        const base = path.join(process.cwd(), "photos");
-        if (!fs.existsSync(base)) {
-            console.warn("⚠️ No /photos folder found");
-            return [];
-        }
+        const base = path.join(process.cwd(), "assets/wall");
 
         const raw = fs.readdirSync(base)
             .filter(name =>
@@ -117,7 +166,7 @@ module.exports = function (eleventyConfig) {
                     .filter(file =>
                         /\.(jpg|jpeg|png|webp)$/i.test(file)
                     )
-                    .map(file => `photos/${category}/${file}`);
+                    .map(file => `assets/wall/${category}/${file}`);
 
                 return {
                     name: category,
@@ -129,11 +178,18 @@ module.exports = function (eleventyConfig) {
         return await processImages(raw);
     });
 
+    eleventyConfig.addGlobalData("getGalleryFromDir", () => {
+        return processGalleryFromDir;
+    });
+
+    eleventyConfig.addGlobalData("pageGalleries", async () => {
+        return await processPageGalleries();
+    });
+
     return {
         dir: {
             input: "src",
             output: "_site"
         }
     };
-
 };

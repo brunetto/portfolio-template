@@ -21,7 +21,9 @@
         {% endif %}
     </p>
     {% if site.mode == "portfolio" %}
-        {% include "contact-form.njk" %}
+        {% if site.components.contactForm.isActive %}
+            {% include "contact-form.njk" %}
+        {% endif %}
     {% else %}
         {% if site.contacts.location.mapsEmbed %}
             <div class="contact-map">
